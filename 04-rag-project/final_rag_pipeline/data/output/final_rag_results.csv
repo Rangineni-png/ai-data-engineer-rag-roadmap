@@ -1,0 +1,65 @@
+question,answer,retrieval_relevant,top_source_file,top_chunk_id,top_distance,sources,context
+How many days can employees work remotely?,"Employees may work remote up to three days per week with manager approval.
+Sources: remote_work\_policy.txt | Chunk: 1 | Distance: 0.4702",True,remote_work_policy.txt,remote_work_policy_chunk_1,0.4702035188674927,remote_work_policy.txt#chunk-1; company_policy.txt#chunk-2; company_policy.txt#chunk-1,"[1] Source: remote_work_policy.txt | Chunk: 1 | Distance: 0.4702
+Remote Work Policy Employees may work remotely up to three days per week with manager approval. Remote employees must be available during core business hours. Company data should only be accessed through approved secure systems. Employees are responsible for maintaining
+
+---
+
+[2] Source: company_policy.txt | Chunk: 2 | Distance: 1.1286
+for medical reasons. Employees should notify their manager as soon as possible. Unused vacation days may not be carried forward unless approved by HR.
+
+---
+
+[3] Source: company_policy.txt | Chunk: 1 | Distance: 1.1462
+Company Leave Policy Employees are eligible for paid time off after completing 90 days of employment. Full-time employees receive 15 days of paid vacation per year. Sick leave is available for medical reasons. Employees should notify their manager as soon"
+Can employees share passwords?,"Answer: No, according to the IT Security Policy, employees cannot disclose passwords. The provided documents do not address password sharing.",True,it_security_policy.txt,it_security_policy_chunk_1,0.668080747127533,it_security_policy.txt#chunk-1; remote_work_policy.txt#chunk-2; remote_work_policy.txt#chunk-1,"[1] Source: it_security_policy.txt | Chunk: 1 | Distance: 0.6681
+IT Security Policy Employees must not share passwords with anyone. All company laptops must use multi-factor authentication. Confidential data should not be stored on personal devices. Suspicious emails should be reported to the IT security team immediately.
+
+---
+
+[2] Source: remote_work_policy.txt | Chunk: 2 | Distance: 1.0537
+accessed through approved secure systems. Employees are responsible for maintaining a professional work environment.
+
+---
+
+[3] Source: remote_work_policy.txt | Chunk: 1 | Distance: 1.3143
+Remote Work Policy Employees may work remotely up to three days per week with manager approval. Remote employees must be available during core business hours. Company data should only be accessed through approved secure systems. Employees are responsible for maintaining"
+How many vacation days do full-time employees receive?,"Full-time employees receive 15 days of paid vacation per year.
+Sources: company_policy.txt | Chunk: 1 | Distance: 0.7095",True,company_policy.txt,company_policy_chunk_1,0.7094607353210449,company_policy.txt#chunk-1; company_policy.txt#chunk-2; remote_work_policy.txt#chunk-1,"[1] Source: company_policy.txt | Chunk: 1 | Distance: 0.7095
+Company Leave Policy Employees are eligible for paid time off after completing 90 days of employment. Full-time employees receive 15 days of paid vacation per year. Sick leave is available for medical reasons. Employees should notify their manager as soon
+
+---
+
+[2] Source: company_policy.txt | Chunk: 2 | Distance: 0.8584
+for medical reasons. Employees should notify their manager as soon as possible. Unused vacation days may not be carried forward unless approved by HR.
+
+---
+
+[3] Source: remote_work_policy.txt | Chunk: 1 | Distance: 1.2362
+Remote Work Policy Employees may work remotely up to three days per week with manager approval. Remote employees must be available during core business hours. Company data should only be accessed through approved secure systems. Employees are responsible for maintaining"
+Where should suspicious emails be reported?,"Answer: I could not find the answer in the provided documents.
+Sources: None",False,it_security_policy.txt,it_security_policy_chunk_2,1.3186360597610474,None,"[1] Source: it_security_policy.txt | Chunk: 2 | Distance: 1.3186
+reported to the IT security team immediately.
+
+---
+
+[2] Source: it_security_policy.txt | Chunk: 1 | Distance: 1.4923
+IT Security Policy Employees must not share passwords with anyone. All company laptops must use multi-factor authentication. Confidential data should not be stored on personal devices. Suspicious emails should be reported to the IT security team immediately.
+
+---
+
+[3] Source: remote_work_policy.txt | Chunk: 2 | Distance: 1.6993
+accessed through approved secure systems. Employees are responsible for maintaining a professional work environment."
+What is my name?,"Answer: I could not find the answer in the provided documents.
+Sources: None",False,it_security_policy.txt,it_security_policy_chunk_2,1.8447147607803345,None,"[1] Source: it_security_policy.txt | Chunk: 2 | Distance: 1.8447
+reported to the IT security team immediately.
+
+---
+
+[2] Source: remote_work_policy.txt | Chunk: 2 | Distance: 1.9266
+accessed through approved secure systems. Employees are responsible for maintaining a professional work environment.
+
+---
+
+[3] Source: it_security_policy.txt | Chunk: 1 | Distance: 2.1088
+IT Security Policy Employees must not share passwords with anyone. All company laptops must use multi-factor authentication. Confidential data should not be stored on personal devices. Suspicious emails should be reported to the IT security team immediately."
