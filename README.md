@@ -1,8 +1,4 @@
-Yes, add **Setup Instructions** also. The README should include everything in one file.
 
-Replace your entire `README.md` with this complete version:
-
-````markdown
 # AI Data Engineer RAG Pipeline
 
 ## Project Overview
