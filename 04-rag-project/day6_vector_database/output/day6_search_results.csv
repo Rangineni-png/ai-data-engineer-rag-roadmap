@@ -1,0 +1,4 @@
+rank,chunk_id,file_name,chunk_number,distance,chunk_text
+1,remote_work_policy_chunk_1,remote_work_policy.txt,1,0.4702035188674927,Remote Work Policy Employees may work remotely up to three days per week with manager approval. Remote employees must be available during core business hours. Company data should only be accessed through approved secure systems. Employees are responsible for maintaining
+2,company_policy_chunk_2,company_policy.txt,2,1.1285583972930908,for medical reasons. Employees should notify their manager as soon as possible. Unused vacation days may not be carried forward unless approved by HR.
+3,company_policy_chunk_1,company_policy.txt,1,1.1462093591690063,Company Leave Policy Employees are eligible for paid time off after completing 90 days of employment. Full-time employees receive 15 days of paid vacation per year. Sick leave is available for medical reasons. Employees should notify their manager as soon

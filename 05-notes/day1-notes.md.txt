@@ -1,0 +1,226 @@
+# Day 1 - AI Data Engineer Roadmap
+
+## Target Role
+AI Data Engineer / GenAI Data Engineer / RAG Data Engineer
+
+## My Career Positioning
+I am preparing to build AI-ready data pipelines for LLM and RAG applications using Python, SQL, PySpark, cloud tools, embeddings, vector databases, and retrieval systems.
+
+## Core Skills to Build
+- SQL
+- Python
+- PySpark
+- Cloud basics
+- RAG
+- Embeddings
+- Vector databases
+- LangChain or LlamaIndex
+- FastAPI
+- Docker
+- Data quality
+- AI pipeline monitoring
+
+## Role Understanding
+
+## Role Understanding
+
+### 1. What does an AI Data Engineer do?
+
+An AI Data Engineer builds data pipelines that prepare data for AI systems, especially LLM and RAG applications.
+
+They collect data from different sources like PDFs, databases, CSV files, APIs, websites, logs, and documents. Then they clean, transform, chunk, embed, store, and retrieve that data so AI applications can use it correctly.
+
+Simple meaning:
+
+An AI Data Engineer makes company data ready for AI.
+
+Example:
+
+A company has thousands of policy documents. An AI Data Engineer builds a pipeline that reads those documents, breaks them into chunks, creates embeddings, stores them in a vector database, and allows a chatbot to answer questions using those documents.
+
+---
+
+### 2. How is an AI Data Engineer different from a traditional Data Engineer?
+
+A traditional Data Engineer mainly builds pipelines for analytics, reporting, dashboards, and business intelligence.
+
+A traditional pipeline may look like this:
+
+Raw data  
+→ cleaning  
+→ transformation  
+→ data warehouse  
+→ dashboard/report
+
+An AI Data Engineer builds pipelines for AI and LLM applications.
+
+An AI pipeline may look like this:
+
+Raw documents/data  
+→ text extraction  
+→ cleaning  
+→ chunking  
+→ embeddings  
+→ vector database  
+→ retrieval  
+→ LLM answer
+
+The main difference is the final use case.
+
+Traditional Data Engineer:
+
+- Prepares data for humans, dashboards, reports, and analytics.
+
+AI Data Engineer:
+
+- Prepares data for AI systems, chatbots, RAG pipelines, semantic search, and LLM applications.
+
+---
+
+### 3. What is RAG?
+
+RAG means Retrieval-Augmented Generation.
+
+It is a technique where an AI system first retrieves relevant information from a knowledge source, then uses that information to generate an answer.
+
+Without RAG, an LLM answers mostly from its trained knowledge.
+
+With RAG, the LLM can answer using company-specific or private data.
+
+Example:
+
+User asks:
+
+“What is our company’s vacation policy?”
+
+The system searches the company policy documents, retrieves the relevant section, gives that section to the LLM, and then the LLM generates the answer.
+
+Simple meaning:
+
+RAG helps an LLM answer using external documents instead of guessing.
+
+---
+
+### 4. What are embeddings?
+
+Embeddings are numerical representations of text, images, or other data.
+
+In AI data engineering, text is converted into vectors, which are lists of numbers. These numbers capture the meaning of the text.
+
+Example:
+
+The sentences:
+
+“I want to apply for vacation leave.”
+
+and
+
+“How do I request time off?”
+
+use different words, but they have similar meaning. Their embeddings would be close to each other in vector space.
+
+Simple meaning:
+
+Embeddings convert meaning into numbers so computers can compare text by meaning, not just exact words.
+
+---
+
+### 5. What is a vector database?
+
+A vector database stores embeddings and allows fast similarity search.
+
+In normal databases, we usually search using exact values, like:
+
+```sql
+WHERE city = 'Chicago'
+## RAG Pipeline
+
+Raw documents
+→ text extraction
+→ text cleaning
+→ chunking
+→ embeddings
+→ vector database
+→ semantic search
+→ retrieved context
+→ LLM answer
+→ citations
+
+## RAG Pipeline Terms
+
+**Raw documents:**
+Raw documents are the original files or data sources that contain information. Examples include PDFs, Word documents, CSV files, websites, emails, database records, product manuals, and company policy documents.
+
+**Text extraction:**
+Text extraction is the process of pulling readable text from raw documents. For example, extracting text from a PDF, webpage, or Word document so the system can process it.
+
+**Text cleaning:**
+Text cleaning means removing unwanted or messy content from extracted text. This can include removing extra spaces, page numbers, symbols, duplicate lines, broken characters, headers, footers, or irrelevant text.
+
+**Chunking:**
+Chunking is the process of splitting long text into smaller pieces. LLMs and vector databases work better when large documents are divided into meaningful sections instead of being stored as one huge block.
+
+**Embeddings:**
+Embeddings are numerical representations of text. They convert words and sentences into vectors, which help computers understand meaning and compare similar pieces of text.
+
+**Vector database:**
+A vector database stores embeddings and allows fast similarity search. It helps find information based on meaning, not just exact keywords. Examples include Chroma, Pinecone, Qdrant, Weaviate, and FAISS.
+
+**Semantic search:**
+Semantic search means searching by meaning instead of exact words. For example, if a user asks “How can I take time off?”, semantic search can find documents about “vacation policy,” “PTO,” or “leave request.”
+
+**Retrieved context:**
+Retrieved context is the relevant information pulled from the vector database based on the user’s question. This context is given to the LLM so it can answer using the correct source material.
+
+**LLM answer:**
+The LLM answer is the final response generated by the language model using the retrieved context. In a good RAG system, the answer should be based on the retrieved documents, not random guessing.
+
+**Citations:**
+Citations show where the answer came from. They can include document names, page numbers, section titles, or source links. Citations help users trust and verify the AI-generated answer.
+
+## Day 1 Reflection
+
+What I completed:
+- Created the AI Data Engineer learning folder structure.
+- Created Day 1 notes.
+- Practiced SQL diagnostic questions.
+- Built and ran a small Python data pipeline.
+- Created cleaned_orders.csv, customer_summary.csv, and monthly_summary.csv.
+
+What was easy:
+- Creating folders and files.
+- Running the Python script after fixing the CSV file.
+
+What was difficult:
+- Understanding some SQL concepts like GROUP BY, HAVING, LEFT JOIN, and ROW_NUMBER().
+- Debugging the EmptyDataError in pandas.
+
+Python pipeline summary:
+Today I built a small Python data pipeline. It read orders.csv, removed duplicate rows, removed missing values, filtered only completed orders, calculated total spending by customer, calculated monthly revenue, and saved the results into new CSV files.
+
+SQL topics I need to revise:
+- GROUP BY
+- HAVING
+- LEFT JOIN
+- ROW_NUMBER()
+- ORDER BY with LIMIT
+
+Python topics I need to revise:
+- Reading CSV files
+- Cleaning data with pandas
+- groupby()
+- Date conversion using pd.to_datetime()
+
+RAG concepts I understood:
+- RAG uses external documents to help an LLM answer questions.
+- Embeddings convert text meaning into numbers.
+- Vector databases help search by meaning.
+
+RAG concepts still confusing:
+- How chunking works in real projects.
+- How embeddings are created.
+- How vector search retrieves the correct context.
+
+Tomorrow I should focus on:
+- Practicing GROUP BY, HAVING, LEFT JOIN, and ROW_NUMBER().
+- Reviewing the Python pipeline step by step.

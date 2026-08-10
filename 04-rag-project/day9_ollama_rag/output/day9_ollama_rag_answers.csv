@@ -1,0 +1,62 @@
+question,answer,top_source_file,top_chunk_id,top_distance,context
+How many days can employees work remotely?,Employees may work remote up to three days per week with manager approval.,remote_work_policy.txt,remote_work_policy_chunk_1,0.4702035188674927,"[Source: remote_work_policy.txt, Chunk: 1]
+Remote Work Policy Employees may work remotely up to three days per week with manager approval. Remote employees must be available during core business hours. Company data should only be accessed through approved secure systems. Employees are responsible for maintaining
+
+---
+
+[Source: company_policy.txt, Chunk: 2]
+for medical reasons. Employees should notify their manager as soon as possible. Unused vacation days may not be carried forward unless approved by HR.
+
+---
+
+[Source: company_policy.txt, Chunk: 1]
+Company Leave Policy Employees are eligible for paid time off after completing 90 days of employment. Full-time employees receive 15 days of paid vacation per year. Sick leave is available for medical reasons. Employees should notify their manager as soon"
+Can employees share passwords?,I could not find the answer in the provided documents.,it_security_policy.txt,it_security_policy_chunk_1,0.668080747127533,"[Source: it_security_policy.txt, Chunk: 1]
+IT Security Policy Employees must not share passwords with anyone. All company laptops must use multi-factor authentication. Confidential data should not be stored on personal devices. Suspicious emails should be reported to the IT security team immediately.
+
+---
+
+[Source: remote_work_policy.txt, Chunk: 2]
+accessed through approved secure systems. Employees are responsible for maintaining a professional work environment.
+
+---
+
+[Source: remote_work_policy.txt, Chunk: 1]
+Remote Work Policy Employees may work remotely up to three days per week with manager approval. Remote employees must be available during core business hours. Company data should only be accessed through approved secure systems. Employees are responsible for maintaining"
+How many vacation days do full-time employees receive?,"Full-time employees receive 15 days of paid vacation per year. 
+Source: company_policy.txt, Chunk: 1",company_policy.txt,company_policy_chunk_1,0.7094607353210449,"[Source: company_policy.txt, Chunk: 1]
+Company Leave Policy Employees are eligible for paid time off after completing 90 days of employment. Full-time employees receive 15 days of paid vacation per year. Sick leave is available for medical reasons. Employees should notify their manager as soon
+
+---
+
+[Source: company_policy.txt, Chunk: 2]
+for medical reasons. Employees should notify their manager as soon as possible. Unused vacation days may not be carried forward unless approved by HR.
+
+---
+
+[Source: remote_work_policy.txt, Chunk: 1]
+Remote Work Policy Employees may work remotely up to three days per week with manager approval. Remote employees must be available during core business hours. Company data should only be accessed through approved secure systems. Employees are responsible for maintaining"
+Where should suspicious emails be reported?,To the IT Security Team.,it_security_policy.txt,it_security_policy_chunk_2,1.3186360597610474,"[Source: it_security_policy.txt, Chunk: 2]
+reported to the IT security team immediately.
+
+---
+
+[Source: it_security_policy.txt, Chunk: 1]
+IT Security Policy Employees must not share passwords with anyone. All company laptops must use multi-factor authentication. Confidential data should not be stored on personal devices. Suspicious emails should be reported to the IT security team immediately.
+
+---
+
+[Source: remote_work_policy.txt, Chunk: 2]
+accessed through approved secure systems. Employees are responsible for maintaining a professional work environment."
+What is my name?,I could not find the answer in the provided documents.,it_security_policy.txt,it_security_policy_chunk_2,1.8447147607803345,"[Source: it_security_policy.txt, Chunk: 2]
+reported to the IT security team immediately.
+
+---
+
+[Source: remote_work_policy.txt, Chunk: 2]
+accessed through approved secure systems. Employees are responsible for maintaining a professional work environment.
+
+---
+
+[Source: it_security_policy.txt, Chunk: 1]
+IT Security Policy Employees must not share passwords with anyone. All company laptops must use multi-factor authentication. Confidential data should not be stored on personal devices. Suspicious emails should be reported to the IT security team immediately."

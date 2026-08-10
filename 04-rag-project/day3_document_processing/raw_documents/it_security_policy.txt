@@ -1,0 +1,9 @@
+IT Security Policy
+
+Employees must not share passwords with anyone.
+
+All company laptops must use multi-factor authentication.
+
+Confidential data should not be stored on personal devices.
+
+Suspicious emails should be reported to the IT security team immediately.

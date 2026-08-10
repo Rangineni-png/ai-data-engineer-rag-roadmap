@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Large/local vector DB and model/cache files
+04-rag-project/day6_vector_database/chroma_db/
+*.npy
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp

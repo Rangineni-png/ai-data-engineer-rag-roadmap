@@ -1,0 +1,7 @@
+customer_id,name,city,signup_date,total_spent
+101,Asha,Chicago,2024-01-01,550.0
+102,Ravi,Dallas,2024-01-05,300.0
+103,Neha,New York,2024-02-01,0.0
+104,John,Boston,2024-02-10,0.0
+105,Maya,Seattle,2024-03-01,700.0
+106,Sam,Austin,2024-03-15,0.0
