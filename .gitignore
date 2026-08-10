@@ -8,17 +8,19 @@ __pycache__/
 venv/
 .ipynb_checkpoints/
 
-# Large/local vector DB and model/cache files
+# Local vector databases and embeddings
+04-rag-project/final_rag_pipeline/vector_db/
 04-rag-project/day6_vector_database/chroma_db/
 *.npy
+
+# Logs
+*.log
+04-rag-project/final_rag_pipeline/logs/
 
 # OS / editor
 .DS_Store
 Thumbs.db
 .vscode/
-
-# Logs
-*.log
 
 # Temporary files
 *.tmp
