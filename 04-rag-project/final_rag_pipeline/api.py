@@ -98,17 +98,19 @@ def ask_question(request: QuestionRequest):
             detail="RAG system is not initialized."
         )
 
-    if not request.question.strip():
-        raise HTTPException(
-            status_code=400,
-            detail="Question cannot be empty."
-        )
-
     try:
         result = answer_question(
             question=request.question,
             model=model,
             collection=collection
+        )
+
+        logging.info(
+            f"Question answered | "
+            f"question='{result['question']}' | "
+            f"relevant={result['retrieval_relevant']} | "
+            f"top_source={result['top_source_file']} | "
+            f"distance={result['top_distance']}"
         )
 
         return {
@@ -121,9 +123,16 @@ def ask_question(request: QuestionRequest):
             "sources": result["sources"]
         }
 
+    except ValueError as e:
+        logging.warning(f"Bad request: {e}")
+        raise HTTPException(
+            status_code=400,
+            detail=str(e)
+        )
+
     except Exception as e:
         logging.error(f"Error answering question: {e}")
         raise HTTPException(
             status_code=500,
-            detail=str(e)
+            detail="Internal server error while answering question."
         )

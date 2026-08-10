@@ -9,13 +9,20 @@ import chromadb
 from sentence_transformers import SentenceTransformer
 
 
+BASE_DIR = Path(__file__).parent
+
+LOGS_DIR = BASE_DIR / "logs"
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler(LOGS_DIR / "rag_pipeline.log"),
+        logging.StreamHandler()
+    ]
 )
 
-
-BASE_DIR = Path(__file__).parent
 
 RAW_DOCS_DIR = BASE_DIR / "data" / "raw_documents"
 CLEANED_DOCS_DIR = BASE_DIR / "data" / "cleaned_documents"
@@ -68,6 +75,35 @@ def load_raw_documents():
 
     logging.info(f"Loaded {len(documents)} documents")
     return documents
+
+
+def validate_documents(documents):
+    logging.info("Running document data quality checks")
+
+    if not documents:
+        raise ValueError("No documents were loaded.")
+
+    valid_documents = []
+
+    for doc in documents:
+        file_name = doc["file_name"]
+        cleaned_text = doc["cleaned_text"]
+
+        if not cleaned_text:
+            logging.warning(f"Skipping empty document: {file_name}")
+            continue
+
+        if len(cleaned_text.split()) < 5:
+            logging.warning(f"Skipping document with too few words: {file_name}")
+            continue
+
+        valid_documents.append(doc)
+
+    if not valid_documents:
+        raise ValueError("No valid documents available after data quality checks.")
+
+    logging.info(f"{len(valid_documents)} documents passed data quality checks")
+    return valid_documents
 
 
 def save_cleaned_documents(documents):
@@ -211,6 +247,7 @@ def build_knowledge_base():
     logging.info("Building knowledge base")
 
     documents = load_raw_documents()
+    documents = validate_documents(documents)
     save_cleaned_documents(documents)
 
     chunks_df = create_document_chunks(documents)
@@ -331,14 +368,64 @@ def call_ollama(prompt):
         "stream": False
     }
 
-    response = requests.post(OLLAMA_URL, json=payload, timeout=120)
-    response.raise_for_status()
+    try:
+        response = requests.post(OLLAMA_URL, json=payload, timeout=120)
+        response.raise_for_status()
 
-    data = response.json()
-    return data.get("response", "").strip()
+        data = response.json()
+        answer = data.get("response", "").strip()
+
+        if not answer:
+            raise ValueError("Ollama returned an empty response.")
+
+        return answer
+
+    except requests.exceptions.ConnectionError:
+        logging.error("Could not connect to Ollama. Make sure Ollama is running.")
+        return (
+            "Answer: The local LLM service is not available. "
+            "Please make sure Ollama is running.\n"
+            "Sources: None"
+        )
+
+    except requests.exceptions.Timeout:
+        logging.error("Ollama request timed out.")
+        return (
+            "Answer: The local LLM request timed out. Please try again.\n"
+            "Sources: None"
+        )
+
+    except Exception as e:
+        logging.error(f"Ollama error: {e}")
+        return (
+            "Answer: An error occurred while generating the answer.\n"
+            "Sources: None"
+        )
+
+
+def validate_question(question):
+    if question is None:
+        raise ValueError("Question cannot be None.")
+
+    question = question.strip()
+
+    if not question:
+        raise ValueError("Question cannot be empty.")
+
+    if len(question) < 3:
+        raise ValueError("Question is too short.")
+
+    if len(question) > 500:
+        raise ValueError("Question is too long. Please keep it under 500 characters.")
+
+    return question
 
 
 def answer_question(question, model, collection):
+    question = validate_question(question)
+
+    logging.info(f"Answering question: {question}")
+
     retrieved_chunks = retrieve_chunks(question, model, collection)
 
     retrieval_relevant = is_retrieval_relevant(retrieved_chunks)
@@ -353,6 +440,13 @@ def answer_question(question, model, collection):
     else:
         prompt = build_prompt(question, context)
         answer = call_ollama(prompt)
+
+        if "could not find" in answer.lower():
+            top_chunk = retrieved_chunks[0]
+            answer = (
+                f"Answer: {top_chunk['chunk_text']}\n"
+                f"Sources: {top_chunk['file_name']}#chunk-{top_chunk['chunk_number']}"
+            )
 
     result = {
         "question": question,
@@ -415,3 +509,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
